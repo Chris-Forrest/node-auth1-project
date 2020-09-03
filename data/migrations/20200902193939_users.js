@@ -3,7 +3,7 @@ const { table } = require("../dbConfig");
 exports.up = function(knex) {
   return knex.schema.createTable("users", (tbl) => {
       tbl.increments()
-      tbl.text("usernam").notNull().unique()
+      tbl.text("username").notNull().unique()
       tbl.text("password").notNull()
   })
 };
