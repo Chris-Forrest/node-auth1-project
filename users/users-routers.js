@@ -42,5 +42,13 @@ router.post("/api/login", async (req,res,next) =>{
     }
 });
 
+router.get("/api/users", usersMiddleware.restrict(), async (req,res,next) => {
+    try{
+        res.json(await Users.find())
+    }catch(err){
+        next(err)
+    }
+})
+
 
 module.exports = router
