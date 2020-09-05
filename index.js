@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const session = require("express-session");
 const KnexSessionStore = require("connect-session-knex")(session)
 const usersRouter = require("./users/users-routers");
@@ -7,6 +8,7 @@ const db = require("./data/dbConfig")
 const server = express()
 const port = process.env.PORT || 7000
 
+server.use(cors())
 server.use(express.json());
 server.use(logger);
 server.use(session({
